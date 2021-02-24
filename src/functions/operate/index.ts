@@ -1,15 +1,15 @@
-import schema from './schema';
-
 export default {
   handler: `${__dirname.split(process.cwd())[1].substring(1).replace(/\\/g, '/')}/handler.main`,
   events: [
     {
       http: {
-        method: 'post',
+        method: 'get',
         path: 'operate',
-        request: {
-          schema: {
-            'application/json': schema
+        request:{
+          parameters: {
+            querystrings: {
+              clientId: true
+            }
           }
         }
       }

@@ -161,7 +161,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/chime-handler/beta/1614130282030-2021-02-24T01:31:22.030Z/chime-handler.zip"
+          "S3Key": "serverless/chime-handler/beta/1614184651857-2021-02-24T16:37:31.857Z/chime-handler.zip"
         },
         "Handler": "src/functions/operate/handler.main",
         "Runtime": "nodejs14.x",
@@ -184,14 +184,14 @@
         "OperateLogGroup"
       ]
     },
-    "OperateLambdaVersionp34vxZ57CRbshgTKU6lxfv7iw3dgi78IeVaBpCx60u0": {
+    "OperateLambdaVersionzkzW6anhJLvf1TS8TpBDfocIvzp9FGVoTtDPHCqIsmM": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "OperateLambdaFunction"
         },
-        "CodeSha256": "iIUCGqgQ7opVAvutmXTkBeyhm2RYMi+qwwaBlySkU/k="
+        "CodeSha256": "JS5ySNJFFLk0PWnIzDumn13DCSfYoeDnlNGQ954tbjU="
       }
     },
     "ApiGatewayRestApi": {
@@ -222,41 +222,13 @@
         }
       }
     },
-    "ApiGatewayMethodOperatePostApplicationJsonModel": {
-      "Type": "AWS::ApiGateway::Model",
-      "Properties": {
-        "RestApiId": {
-          "Ref": "ApiGatewayRestApi"
-        },
-        "ContentType": "application/json",
-        "Schema": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "name"
-          ]
-        }
-      }
-    },
-    "ApiGatewayMethodOperatePostValidator": {
-      "Type": "AWS::ApiGateway::RequestValidator",
-      "Properties": {
-        "RestApiId": {
-          "Ref": "ApiGatewayRestApi"
-        },
-        "ValidateRequestBody": true,
-        "ValidateRequestParameters": true
-      }
-    },
-    "ApiGatewayMethodOperatePost": {
+    "ApiGatewayMethodOperateGet": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
-        "HttpMethod": "POST",
-        "RequestParameters": {},
+        "HttpMethod": "GET",
+        "RequestParameters": {
+          "method.request.querystring.clientId": true
+        },
         "ResourceId": {
           "Ref": "ApiGatewayResourceOperate"
         },
@@ -292,18 +264,10 @@
             ]
           }
         },
-        "MethodResponses": [],
-        "RequestValidatorId": {
-          "Ref": "ApiGatewayMethodOperatePostValidator"
-        },
-        "RequestModels": {
-          "application/json": {
-            "Ref": "ApiGatewayMethodOperatePostApplicationJsonModel"
-          }
-        }
+        "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1614130272852": {
+    "ApiGatewayDeployment1614184643403": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -312,7 +276,7 @@
         "StageName": "beta"
       },
       "DependsOn": [
-        "ApiGatewayMethodOperatePost"
+        "ApiGatewayMethodOperateGet"
       ]
     },
     "OperateLambdaPermissionApiGateway": {
@@ -362,7 +326,7 @@
     "OperateLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "OperateLambdaVersionp34vxZ57CRbshgTKU6lxfv7iw3dgi78IeVaBpCx60u0"
+        "Ref": "OperateLambdaVersionzkzW6anhJLvf1TS8TpBDfocIvzp9FGVoTtDPHCqIsmM"
       }
     },
     "ServiceEndpoint": {
