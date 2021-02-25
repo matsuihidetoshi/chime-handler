@@ -161,7 +161,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/chime-handler/beta/1614184651857-2021-02-24T16:37:31.857Z/chime-handler.zip"
+          "S3Key": "serverless/chime-handler/beta/1614247962743-2021-02-25T10:12:42.743Z/chime-handler.zip"
         },
         "Handler": "src/functions/operate/handler.main",
         "Runtime": "nodejs14.x",
@@ -184,14 +184,14 @@
         "OperateLogGroup"
       ]
     },
-    "OperateLambdaVersionzkzW6anhJLvf1TS8TpBDfocIvzp9FGVoTtDPHCqIsmM": {
+    "OperateLambdaVersion09QiEEUtbTRZQhqHNAEyzSYV2OX1klzVX0Oygp6eEHE": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "OperateLambdaFunction"
         },
-        "CodeSha256": "JS5ySNJFFLk0PWnIzDumn13DCSfYoeDnlNGQ954tbjU="
+        "CodeSha256": "lA+Hm7BmguwBH2INjXgo0EEcHHOp5ri0mFr8qVSERwo="
       }
     },
     "ApiGatewayRestApi": {
@@ -267,7 +267,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1614184643403": {
+    "ApiGatewayDeployment1614247954362": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -326,7 +326,7 @@
     "OperateLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "OperateLambdaVersionzkzW6anhJLvf1TS8TpBDfocIvzp9FGVoTtDPHCqIsmM"
+        "Ref": "OperateLambdaVersion09QiEEUtbTRZQhqHNAEyzSYV2OX1klzVX0Oygp6eEHE"
       }
     },
     "ServiceEndpoint": {

@@ -12,7 +12,11 @@ const { v4: uuidv4 }: any = require("uuid")
 const json: any = (statusCode: any, contentType: any, body: any) => {
   return {
       statusCode,
-      headers: { "content-type": contentType },
+      headers: {
+        "content-type": contentType,
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": "true"
+      },
       body: JSON.stringify(body)
   }
 }
